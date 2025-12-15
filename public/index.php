@@ -1,0 +1,20 @@
+<?php
+
+// 3 constantes pour définir les dossiers de notre projet
+define('PROJECT_PATH', dirname(__DIR__));
+
+const CONTROLLER_PATH = PROJECT_PATH . '/app/controllers';
+const TEMPLATE_PATH = PROJECT_PATH . '/app/templates';
+
+// Routage simple
+$routes = [
+    'home' => 'homepage.php',
+    'contact' => 'contact.php',
+];
+
+// Recherche du controller associé à la page demandée
+$page = $_GET['page'];
+$controller = $routes[$page];
+
+// Chargement du controller
+require CONTROLLER_PATH . '/' . $controller;
