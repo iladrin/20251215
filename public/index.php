@@ -13,7 +13,14 @@ $routes = [
 ];
 
 // Recherche du controller associé à la page demandée
-$page = $_GET['page'];
+$page = $_GET['page'] ?? 'home';
+
+if (!isset($routes[$page])) {
+    echo 'Page introuvable';
+    http_response_code(404);
+    die;
+}
+
 $controller = $routes[$page];
 
 // Chargement du controller
