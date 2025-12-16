@@ -6,7 +6,13 @@
   <title>Accueil</title>
 </head>
 <body>
-    <h1>Accueil</h1>
-    <div><?php echo date('d-m-Y'); ?></div>
+<h1>Accueil</h1>
+
+<div>
+  <h2>Ressources :</h2>
+  <ul>
+    <li><a href="?page=users">Liste des utilisateurs</a></li>
+  </ul>
+</div>
 </body>
 </html>

@@ -8,6 +8,7 @@ define('PROJECT_PATH', dirname(__DIR__));
 
 const CONTROLLER_PATH = PROJECT_PATH . '/app/controllers';
 const TEMPLATE_PATH = PROJECT_PATH . '/app/templates';
+const DATA_PATH = PROJECT_PATH . '/app/data';
 const CONFIG_PATH = PROJECT_PATH . '/config';
 
 // Routage simple
