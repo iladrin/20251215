@@ -5,12 +5,10 @@ define('PROJECT_PATH', dirname(__DIR__));
 
 const CONTROLLER_PATH = PROJECT_PATH . '/app/controllers';
 const TEMPLATE_PATH = PROJECT_PATH . '/app/templates';
+const CONFIG_PATH = PROJECT_PATH . '/config';
 
 // Routage simple
-$routes = [
-    'home' => 'homepage.php',
-    'contact' => 'contact.php',
-];
+$routes = require CONFIG_PATH . '/routes.php';
 
 // Recherche du controller associé à la page demandée
 $page = $_GET['page'] ?? 'home';
