@@ -1,26 +1,15 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Utilisateurs</title>
-</head>
-<body>
+<?php require '_header.php'; ?>
+
 <h1>Utilisateurs</h1>
 
-<ul>
-  <?php
-  foreach ($users as $user) {
-    echo '<li>' . $user['username'] . '</li>';
-  }
-  ?>
-</ul>
-
-<div>
+<div class="mt-5">
   <ul>
-    <li><a href="?page=home">Accueil</a></li>
-    <li><a href="?page=contact">Contact</a></li>
+    <?php
+    foreach ($users as $user) {
+      echo '<li><a class="link-opacity-50-hover" href="?page=user_profile&id=????">' . $user['username'] . '</a></li>';
+    }
+    ?>
   </ul>
 </div>
-</body>
-</html>
+
+<?php require '_footer.php'; ?>

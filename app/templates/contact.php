@@ -1,11 +1,8 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact</title>
-</head>
-<body>
-    <h1>Contact</h1>
-</body>
-</html>
+<?php require '_header.php'; ?>
+
+<h1>Contact</h1>
+
+<div class="mt-5">
+</div>
+
+<?php require '_footer.php'; ?>
