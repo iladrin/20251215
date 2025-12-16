@@ -1,5 +1,8 @@
 <?php
 
+// Chargement des dépendances du projet (librairies PHP via Composer)
+require '../vendor/autoload.php';
+
 // 3 constantes pour définir les dossiers de notre projet
 define('PROJECT_PATH', dirname(__DIR__));
 
