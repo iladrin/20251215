@@ -5,7 +5,8 @@ function getDbConnection(): PDO
     static $connection = null;
 
     if ($connection === null) {
-        $dsn = 'mysql:host=localhost;dbname=training;charset=utf8mb4';
+//        $dsn = 'mysql:host=localhost;dbname=training;charset=utf8mb4';
+        $dsn = 'sqlite:' . DATA_PATH . '/database.sqlite';
 
         try {
             $connection = new PDO($dsn, 'root', '', [
