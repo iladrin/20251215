@@ -6,7 +6,7 @@ require '_header.php'; ?>
 <div class="mt-5">
   <h2>Ressources :</h2>
   <ul>
-    <li><a href="?page=users">Liste des utilisateurs</a></li>
+    <li><a class="link-dark link-opacity-50-hover" href="?page=users">Liste des utilisateurs</a></li>
   </ul>
 </div>
 

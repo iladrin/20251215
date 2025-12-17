@@ -6,7 +6,7 @@
   <ul>
     <?php
     foreach ($users as $user) {
-      echo '<li><a class="link-opacity-50-hover" href="?page=user_profile&id=????">' . $user['username'] . '</a></li>';
+      echo '<li><a class="link-dark link-opacity-50-hover" href="?page=user_profile&id=????">' . $user['username'] . '</a></li>';
     }
     ?>
   </ul>
