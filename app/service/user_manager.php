@@ -7,7 +7,7 @@ function getUsers(): array
 
     if ($users === null) {
         // L’appel ci-dessous ne sera exécuté qu’au premier appel à cette fonction (variable "static")
-        $users = getUsersFromCsv();
+        $users = getUsersFromYaml();
     }
 
     return $users;
@@ -35,6 +35,11 @@ function getUsersFromCsv(): array
     }
 
     return $users;
+}
+
+function getUsersFromYaml(): array
+{
+    return \Symfony\Component\Yaml\Yaml::parseFile(DATA_PATH . '/users.yaml');
 }
 
 function userFind(int $id): ?array
