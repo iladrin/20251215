@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/database.php';
+
 function getUsers(): array
 {
     // Stockage des $users dans une mémoire "static", restaurée au prochain appel à cette fonction
@@ -7,7 +9,7 @@ function getUsers(): array
 
     if ($users === null) {
         // L’appel ci-dessous ne sera exécuté qu’au premier appel à cette fonction (variable "static")
-        $users = getUsersFromYaml();
+        $users = getUsersFromDatabase();
     }
 
     return $users;
@@ -40,6 +42,30 @@ function getUsersFromCsv(): array
 function getUsersFromYaml(): array
 {
     return \Symfony\Component\Yaml\Yaml::parseFile(DATA_PATH . '/users.yaml');
+}
+
+function getUsersFromDatabase(): array
+{
+    $pdo = getDbConnection();
+
+    $statement = $pdo->prepare('SELECT * FROM user');
+    $statement->execute();
+
+    $data = $statement->fetchAll();
+
+    $users = [];
+    foreach ($data as $row) {
+        $user = [
+            'id' => $row['id'],
+            'firstname' => $row['firstname'],
+            'username' => $row['username'],
+            'roles' => explode(',', $row['roles']),
+        ];
+
+        $users[] = $user;
+    }
+
+    return $users;
 }
 
 function userFind(int $id): ?array
