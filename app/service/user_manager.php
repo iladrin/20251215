@@ -7,7 +7,7 @@ function getUsers(): array
 
     if ($users === null) {
         // L’appel ci-dessous ne sera exécuté qu’au premier appel à cette fonction (variable "static")
-        $users = getUsersFromPhp();
+        $users = getUsersFromCsv();
     }
 
     return $users;
@@ -16,6 +16,25 @@ function getUsers(): array
 function getUsersFromPhp(): array
 {
     return require DATA_PATH . '/users.php';
+}
+
+function getUsersFromCsv(): array
+{
+    $file = fopen(DATA_PATH . '/users.csv', 'r');
+
+    $users = [];
+    while (($data = fgetcsv(stream: $file, enclosure: '"', escape: '\\')) !== false) {
+        $user = [
+            'id' => (int) $data[0],
+            'firstname' => $data[1],
+            'username' => $data[2],
+            'roles' => explode(',', $data[3]),
+        ];
+
+        $users[] = $user;
+    }
+
+    return $users;
 }
 
 function userFind(int $id): ?array
