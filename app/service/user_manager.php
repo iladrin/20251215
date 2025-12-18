@@ -9,7 +9,7 @@ function getUsers(): array
 
     if ($users === null) {
         // L’appel ci-dessous ne sera exécuté qu’au premier appel à cette fonction (variable "static")
-        $users = getUsersFromDatabase();
+        $users = getUsersFromPhp();
     }
 
     return $users;
@@ -31,6 +31,7 @@ function getUsersFromCsv(): array
             'firstname' => $data[1],
             'username' => $data[2],
             'roles' => explode(',', $data[3]),
+            'password' => $data[4]
         ];
 
         $users[] = $user;
@@ -60,6 +61,7 @@ function getUsersFromDatabase(): array
             'firstname' => $row['firstname'],
             'username' => $row['username'],
             'roles' => explode(',', $row['roles']),
+            'password' => $row['password']
         ];
 
         $users[] = $user;
@@ -81,3 +83,15 @@ function userFind(int $id): ?array
     return null;
 }
 
+function userFindByUsername(string $username): ?array
+{
+    $users = getUsers();
+
+    foreach ($users as $user) {
+        if ($user['username'] === $username) {
+            return $user;
+        }
+    }
+
+    return null;
+}
