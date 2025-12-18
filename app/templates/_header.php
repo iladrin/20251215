@@ -23,9 +23,9 @@
           <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Utilisateurs</a></li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link disabled" aria-disabled="true" href="#">Connexion</a></li>
-          <li class="nav-item"><a class="nav-link disabled" aria-disabled="true" href="#">S’enregistrer</a></li>
-          <li class="nav-item"><a class="nav-link disabled" aria-disabled="true" href="#">Déconnexion</a></li>
+          <li class="nav-item"><a class="nav-link <?php echo isset($_SESSION['user']) ? 'disabled' : ''; ?>" aria-disabled="true" href="?page=login">Connexion</a></li>
+          <li class="nav-item"><a class="nav-link <?php echo isset($_SESSION['user']) ? 'disabled' : 'disabled'; ?>" aria-disabled="true" href="#">@todo: S’enregistrer</a></li>
+          <li class="nav-item"><a class="nav-link <?php echo isset($_SESSION['user']) ? '' : 'disabled'; ?>" aria-disabled="true" href="?page=logout">Déconnexion</a></li>
         </ul>
       </div>
     </div>

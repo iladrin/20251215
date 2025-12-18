@@ -6,4 +6,5 @@ return [
     'users' => 'users.php',
     'user_profile' => 'user_profile.php',
     'login' => 'login.php',
+    'logout' => 'logout.php',
 ];

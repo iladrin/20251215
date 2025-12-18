@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Chargement des dépendances du projet (librairies PHP via Composer)
 require '../vendor/autoload.php';
 

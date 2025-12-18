@@ -22,12 +22,14 @@ if (!empty($_POST)) {
     } else {
 
         // Si le mot de passe de l’utilisateur n’est pas correct,
-        $error = 'Identifiant ou mot de passe incorrect';
+        if (!password_verify($data['password'], $user['password'])) {
+            $error = 'Identifiant ou mot de passe incorrect';
+        } else {
 
-        // Sinon, si le formulaire est bien rempli,
-        // On authentifie l’utilisateur en le stockant en session.
-
-        dump($user);
+            // Sinon, si le formulaire est bien rempli,
+            // On authentifie l’utilisateur en le stockant en session.
+            $_SESSION['user'] = $user;
+        }
     }
 
 // Vérifier si le mot de passe est correct
