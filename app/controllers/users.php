@@ -1,6 +1,9 @@
 <?php
 
 require_once __DIR__ . '/../service/user_manager.php';
+require_once __DIR__ . '/../service/security.php';
+
+denyAccessUnlessHasRole('ROLE_ADMIN');
 
 // Atelier de tri pour classer les utilisateurs par username
 $users = getUsers();

@@ -20,7 +20,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item"><a class="nav-link" href="?page=home">Accueil</a></li>
           <li class="nav-item"><a class="nav-link" href="?page=contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Utilisateurs</a></li>
+          <li class="nav-item"><a class="nav-link" href="?page=users">Utilisateurs</a></li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link <?php echo isset($_SESSION['user']) ? 'disabled' : ''; ?>" aria-disabled="true" href="?page=login">Connexion</a></li>
